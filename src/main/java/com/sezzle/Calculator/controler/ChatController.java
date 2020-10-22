@@ -3,6 +3,7 @@ package com.sezzle.Calculator.controler;
 
 import com.sezzle.Calculator.model.KafkaConstants;
 import com.sezzle.Calculator.model.Message;
+import com.sezzle.Calculator.service.MessageConsumerService;
 import com.sezzle.Calculator.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -24,23 +25,21 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class ChatController {
 
-    @Autowired
-    private KafkaTemplate<String, Message> kafkaTemplate;
+   /* @Autowired
+    private KafkaTemplate<String, Message> kafkaTemplate;*/
 
     @Autowired
     private MessageService messageService;
+
+    @Autowired
+    private MessageConsumerService messageConsumerService;
 
 
     @PostMapping(value = "/api/send", consumes = "application/json", produces = "application/json")
     public void sendMessage(@RequestBody Message message) {
         message.setTimestamp(LocalDateTime.now());
-        try {
-            //Sending the message to kafka topic queue
-            messageService.saveMessage(message);
-            kafkaTemplate.send(KafkaConstants.KAFKA_TOPIC, message).get();
-        } catch (InterruptedException | ExecutionException e) {
-            throw new RuntimeException(e);
-        }
+        messageService.saveMessage(message);
+        messageConsumerService.listen(message);
     }
 
     //    -------------- WebSocket API ----------------
