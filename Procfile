@@ -1,1 +1,1 @@
--Dserver.port=$PORT
+web: -Dserver.port=$PORT
