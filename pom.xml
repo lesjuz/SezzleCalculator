@@ -81,28 +81,30 @@
 	</dependencies>
 
 	<build>
+		<finalName>calculator</finalName>
 		<plugins>
+
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
 				<executions>
 					<execution>
+						<phase>package</phase>
 						<goals>
-							<goal>repackage</goal>
+							<goal>copy</goal>
 						</goals>
 						<configuration>
-							<finalName>calculator</finalName>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.github.jsimone</groupId>
+									<artifactId>webapp-runner</artifactId>
+									<version>9.0.11.0</version>
+									<destFileName>webapp-runner.jar</destFileName>
+								</artifactItem>
+							</artifactItems>
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>3.2.0</version>
-				<configuration>
-					<finalName>calculator</finalName>
-				</configuration>
 			</plugin>
 
 		</plugins>
