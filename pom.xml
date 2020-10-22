@@ -20,7 +20,7 @@
 		<java.version>8</java.version>
 
 	</properties>
-
+	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
