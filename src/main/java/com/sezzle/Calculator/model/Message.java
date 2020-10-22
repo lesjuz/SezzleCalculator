@@ -1,18 +1,29 @@
 package com.sezzle.Calculator.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+@Entity
 public class Message {
+    @Id
+    @GeneratedValue
+    private Long id;
     private String sender;
     private String content;
-    private String timestamp;
+
+    private LocalDateTime timestamp;
 
     public Message() {
     }
 
-    public String getTimestamp() {
+    public LocalDateTime getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(String timestamp) {
+    public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -31,6 +42,10 @@ public class Message {
 
     public String getContent() {
         return content;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public void setContent(String content) {
