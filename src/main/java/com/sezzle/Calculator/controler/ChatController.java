@@ -1,7 +1,7 @@
 package com.sezzle.Calculator.controler;
 
 
-import com.sezzle.Calculator.model.KafkaConstants;
+
 import com.sezzle.Calculator.model.Message;
 import com.sezzle.Calculator.service.MessageConsumerService;
 import com.sezzle.Calculator.service.MessageService;

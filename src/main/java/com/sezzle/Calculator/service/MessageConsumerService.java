@@ -1,6 +1,6 @@
 package com.sezzle.Calculator.service;
 
-import com.sezzle.Calculator.model.KafkaConstants;
+
 import com.sezzle.Calculator.model.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
