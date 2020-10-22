@@ -12,7 +12,7 @@
 	<groupId>com.sezzle</groupId>
 	<artifactId>Calculator</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<name>calculator</name>
 	<description>Create a web app  which logs calculations as they happen and shares those calculations with everyone connected to the app</description>
 
