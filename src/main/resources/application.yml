@@ -4,6 +4,12 @@ spring:
     username: ${JDBC_DATABASE_USERNAME}
     password: ${JDBC_DATABASE_PASSWORD}
     driverClassName: org.postgresql.Driver
+    type: org.apache.tomcat.jdbc.pool.DataSource
+
+  jpa:
+    database-platform: ${SPRING_JPA_DATABASE-PLATFORM}
+    hibernate:
+        ddl-auto: ${SPRING_JPA_HIBERNATE_DDL-AUTO}
 
 server:
   port: ${PORT:8080}
