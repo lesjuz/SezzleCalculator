@@ -22,7 +22,7 @@ import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins ="https://sezzle-cal-client.herokuapp.com/")
+
 @RestController
 public class ChatController {
 
@@ -35,7 +35,7 @@ public class ChatController {
     @Autowired
     private MessageConsumerService messageConsumerService;
 
-
+    @CrossOrigin(origins ="https://sezzle-cal-client.herokuapp.com")
     @PostMapping(value = "/api/send", consumes = "application/json", produces = "application/json")
     public void sendMessage(@RequestBody Message message) {
         message.setTimestamp(LocalDateTime.now());
@@ -60,7 +60,7 @@ public class ChatController {
         return message;
     }
 
-
+    @CrossOrigin(origins ="https://sezzle-cal-client.herokuapp.com")
     @GetMapping("/chat/getPrevious")
     public List<Message> getPreviousMessages()
     {
