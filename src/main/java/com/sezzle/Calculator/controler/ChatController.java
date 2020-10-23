@@ -22,6 +22,7 @@ import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins ="https://sezzle-cal-client.herokuapp.com/")
 @RestController
 public class ChatController {
 
@@ -59,7 +60,7 @@ public class ChatController {
         return message;
     }
 
-    @CrossOrigin
+
     @GetMapping("/chat/getPrevious")
     public List<Message> getPreviousMessages()
     {
