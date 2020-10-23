@@ -35,6 +35,11 @@ public class ChatController {
     @Autowired
     private MessageConsumerService messageConsumerService;
 
+    @GetMapping("/")
+    public void welcome(){
+        
+    }
+
     @CrossOrigin(origins ="https://sezzle-cal-client.herokuapp.com")
     @PostMapping(value = "/api/send", consumes = "application/json", produces = "application/json")
     public void sendMessage(@RequestBody Message message) {
@@ -61,7 +66,7 @@ public class ChatController {
     }
 
     @CrossOrigin(origins ="https://sezzle-cal-client.herokuapp.com")
-    @GetMapping("/chat/getPrevious")
+    @GetMapping("/chat")
     public List<Message> getPreviousMessages()
     {
         return messageService.getLatestTen();
