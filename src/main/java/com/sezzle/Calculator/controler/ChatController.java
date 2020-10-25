@@ -66,7 +66,7 @@ public class ChatController {
     }
 
     @CrossOrigin(origins ="https://sezzle-cal-client.herokuapp.com")
-    @GetMapping("/chat")
+    @GetMapping("/chats")
     public List<Message> getPreviousMessages()
     {
         return messageService.getLatestTen();
